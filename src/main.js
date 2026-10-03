@@ -1,1 +1,4 @@
-aW1wb3J0IHsgY3JlYXRlQXBwIH0gZnJvbSAndnVlJzsKaW1wb3J0IEFwcCBmcm9tICcuL0FwcC52dWUnOwoKY3JlYXRlQXBwKEFwcCkubW91bnQoJyNhcHAnKTsK
+import { createApp } from 'vue';
+import App from './App.vue';
+
+createApp(App).mount('#app');

@@ -1,1 +1,31 @@
-IyBNeVRGU0EKCk9uZS1wYWdlIHdlYnNpdGUgZm9yIHRoZSAqKk15VEZTQSoqIGFwcCAoVEZTQSBjb250cmlidXRpb24gcm9vbSB0cmFja2VyKSDigJQKY3VycmVudGx5IGluIFRlc3RGbGlnaHQuIEJ1aWx0IHdpdGggVnVlIDMgKyBWaXRlOyB0aGUgcHJvZHVjdGlvbiBidWlsZCBpcwpjb21taXR0ZWQgdG8gYGRvY3MvYCBhbmQgc2VydmVkIGJ5IEdpdEh1YiBQYWdlczoKCioqaHR0cHM6Ly9lcmljbGVzbC5naXRodWIuaW8vbXl0ZnNhLyoqCgojIyBEZXZlbG9wCgpgYGBiYXNoCm5wbSBpbnN0YWxsCm5wbSBydW4gZGV2CmBgYAoKIyMgUHVibGlzaAoKYGBgYmFzaApucG0gcnVuIGJ1aWxkICAgIyB3cml0ZXMgdGhlIHN0YXRpYyBzaXRlIHRvIGRvY3MvCmdpdCBhZGQgZG9jcyAmJiBnaXQgY29tbWl0IC1tICJSZWJ1aWxkIHNpdGUiICYmIGdpdCBwdXNoCmBgYAoKR2l0SHViIFBhZ2VzIGlzIGNvbmZpZ3VyZWQgYXM6IFNldHRpbmdzIOKGkiBQYWdlcyDihpIgRGVwbG95IGZyb20gYSBicmFuY2gg4oaSCmBtYWluYCAvIGBkb2NzYC4KCiMjIEN1c3RvbSBkb21haW4gKGxhdGVyKQoKMS4gUG9pbnQgdGhlIGRvbWFpbidzIEROUyBhdCBHaXRIdWIgUGFnZXMuCjIuIENoYW5nZSBgYmFzZWAgaW4gYHZpdGUuY29uZmlnLmpzYCBiYWNrIHRvIGAnLydgLCBhZGQgYGRvY3MvQ05BTUVgCiAgIGNvbnRhaW5pbmcgdGhlIGRvbWFpbiwgcmVidWlsZCwgYW5kIHB1c2guCjMuIFNldCB0aGUgY3VzdG9tIGRvbWFpbiBpbiBTZXR0aW5ncyDihpIgUGFnZXMgYW5kIGVuYWJsZSBIVFRQUy4K
+# MyTFSA
+
+One-page website for the **MyTFSA** app (TFSA contribution room tracker) —
+currently in TestFlight. Built with Vue 3 + Vite; the production build is
+committed to `docs/` and served by GitHub Pages:
+
+**https://ericlesl.github.io/mytfsa/**
+
+## Develop
+
+```bash
+npm install
+npm run dev
+```
+
+## Publish
+
+```bash
+npm run build   # writes the static site to docs/
+git add docs && git commit -m "Rebuild site" && git push
+```
+
+GitHub Pages is configured as: Settings → Pages → Deploy from a branch →
+`main` / `docs`.
+
+## Custom domain (later)
+
+1. Point the domain's DNS at GitHub Pages.
+2. Change `base` in `vite.config.js` back to `'/'`, add `docs/CNAME`
+   containing the domain, rebuild, and push.
+3. Set the custom domain in Settings → Pages and enable HTTPS.

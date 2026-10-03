@@ -1,1 +1,14 @@
-aW1wb3J0IHsgZGVmaW5lQ29uZmlnIH0gZnJvbSAndml0ZSc7CmltcG9ydCB2dWUgZnJvbSAnQHZpdGVqcy9wbHVnaW4tdnVlJzsKCi8vIEdpdEh1YiBQYWdlcyBzZXJ2ZXMgdGhpcyByZXBvIGF0IGh0dHBzOi8vZXJpY2xlc2wuZ2l0aHViLmlvL215dGZzYS8sCi8vIHNvIGFsbCBhc3NldCBVUkxzIG5lZWQgdGhlIC9teXRmc2EvIGJhc2UuIFdoZW4gYSBjdXN0b20gZG9tYWluIGlzCi8vIGFkZGVkIGxhdGVyLCBjaGFuZ2UgYmFzZSB0byAnLycgYW5kIGFkZCBkb2NzL0NOQU1FLgpleHBvcnQgZGVmYXVsdCBkZWZpbmVDb25maWcoewogIHBsdWdpbnM6IFt2dWUoKV0sCiAgYmFzZTogJy9teXRmc2EvJywKICBidWlsZDogewogICAgb3V0RGlyOiAnZG9jcycsCiAgICBlbXB0eU91dERpcjogdHJ1ZSwKICB9LAp9KTsK
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
+
+// GitHub Pages serves this repo at https://ericlesl.github.io/mytfsa/,
+// so all asset URLs need the /mytfsa/ base. When a custom domain is
+// added later, change base to '/' and add docs/CNAME.
+export default defineConfig({
+  plugins: [vue()],
+  base: '/mytfsa/',
+  build: {
+    outDir: 'docs',
+    emptyOutDir: true,
+  },
+});
