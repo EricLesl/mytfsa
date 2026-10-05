@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Policy | MyTFSA (TFSA Tracker)</title>
+    <meta
+      name="description"
+      content="How TFSA Tracker (MyTFSA) collects, uses, and protects your information, including how Plaid handles connected financial accounts."
+    />
+    <link rel="canonical" href="https://mytfsa.app/privacy/" />
+    <meta name="robots" content="noindex" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="page">
+      <header class="site-header">
+        <a class="brand" href="/">
+          <span class="brand-tile"><img src="/mt-glyph.png" alt="MyTFSA logo" /></span>
+          <span class="brand-name">MyTFSA</span>
+        </a>
+        <nav class="site-nav" id="primary-nav">
+          <a class="nav-link" href="/tfsa-room-calculator/">Room calculator</a>
+          <a class="nav-link" href="/tfsa-rules/">TFSA rules</a>
+        </nav>
+        <div class="header-actions">
+          <span class="lang-toggle" role="group" aria-label="Language / Langue">
+          <a href="/privacy/" class="active">EN</a>
+          <a href="/fr/regles-celi/">FR</a>
+        </span>
+          <button class="menu-btn" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu">
+            <span class="menu-bar"></span>
+            <span class="menu-bar"></span>
+            <span class="menu-bar"></span>
+          </button>
+        </div>
+      </header>
+
+      <main class="content">
+        <h1>Privacy Policy - TFSA Tracker</h1>
+        <p class="lede">
+          Effective date: October 5, 2026<br />
+          Operated by: <strong>Eric Leslie</strong>, sole proprietor ("we", "us"), Ontario, Canada<br />
+          Contact: support@mytfsa.app
+        </p>
+
+        <h2>What TFSA Tracker does</h2>
+        <p>
+          TFSA Tracker helps Canadians track their TFSA contribution room. You can enter
+          contributions and withdrawals manually, or connect financial accounts so deposits and
+          withdrawals are imported automatically.
+        </p>
+
+        <h2>Information we collect</h2>
+        <p>
+          <strong>Account information:</strong> your email address and a hashed password (managed
+          by our authentication provider, Supabase). If you sign in with Google, we receive your
+          email address from Google.
+        </p>
+        <p>
+          <strong>Profile information:</strong> your date of birth and the first year you became a
+          Canadian tax resident. We use these only to calculate your TFSA contribution room.
+        </p>
+        <p>
+          <strong>Transaction information:</strong> contributions and withdrawals you enter
+          manually, and transactions imported from accounts you connect (amounts, dates, and
+          account identifiers).
+        </p>
+        <p>
+          <strong>Connected-account information:</strong> if you connect accounts, we store the
+          institution name, account name, account type, and masked account number (last digits
+          only), plus a secure access token used to keep the connection updated.
+        </p>
+        <p>
+          We do <strong>not</strong> collect your bank login credentials. Account connections are
+          handled by Plaid (see below); your credentials go to your financial institution through
+          Plaid and never touch our servers or the app.
+        </p>
+
+        <h2>How we use your information</h2>
+        <p>To calculate and display your TFSA contribution room, excess warnings, and related estimates.</p>
+        <p>To import and display your transaction history from accounts you connect.</p>
+        <p>To operate, secure, and improve the app.</p>
+        <p>
+          We do not sell your personal information. We do not use your information for advertising,
+          and the app contains no advertising or third-party analytics SDKs.
+        </p>
+
+        <h2>Plaid</h2>
+        <p>
+          We use Plaid Inc. ("Plaid") to connect your financial accounts. By using TFSA Tracker to
+          connect an account, you grant Plaid the right, power, and authority to act on your behalf
+          to access and transmit your personal and financial information from the relevant financial
+          institution, in accordance with Plaid's privacy policy:
+          https://plaid.com/legal/#end-user-privacy-policy
+        </p>
+        <p>
+          Information we receive from Plaid about connected accounts is used only as described in
+          this policy.
+        </p>
+
+        <h2>Service providers</h2>
+        <p>
+          We use Supabase (database and authentication hosting, data stored in Canada) and Apple
+          (app distribution). These providers process information only to provide their services
+          to us.
+        </p>
+
+        <h2>Data retention and deletion</h2>
+        <p>
+          You can disconnect a connected account at any time in Settings. Disconnecting deletes the
+          Plaid connection and the transactions it imported. Manually entered transactions are not
+          affected.
+        </p>
+        <p>
+          To delete your account and all associated data, contact us at support@mytfsa.app and we will
+          delete it within 30 days, except where retention is required by law.
+        </p>
+        <p>Access tokens for disconnected accounts are deleted and revoked with Plaid.</p>
+
+        <h2>Security</h2>
+        <p>
+          Plaid secrets and account access tokens are stored server-side only, in access-controlled
+          storage; they are never present in the app. Data is transmitted over TLS.
+        </p>
+
+        <h2>Your rights</h2>
+        <p>
+          You may access, correct, or request deletion of your personal information by contacting
+          support@mytfsa.app. This policy is governed by the laws of Ontario and Canada, including
+          PIPEDA.
+        </p>
+
+        <h2>Changes</h2>
+        <p>We will post changes to this policy at this URL and update the effective date.</p>
+
+        <h2>Contact</h2>
+        <p>Eric Leslie - support@mytfsa.app</p>
+      </main>
+
+      <footer class="site-footer">
+        <nav class="footer-links">
+          <a href="/tfsa-room-calculator/">Room calculator</a>
+          <a href="/tfsa-over-contribution-penalty/">Over-contribution penalty</a>
+          <a href="/tfsa-rules/">TFSA rules</a>
+          <a href="/privacy/">Privacy</a>
+          <a href="/terms/">Terms</a>
+          <a href="/fr/regles-celi/">En français</a>
+        </nav>
+        <p class="disclaimer">
+          MyTFSA is a tracking aid, not an official CRA statement. Always confirm your contribution
+          room in CRA My Account.
+        </p>
+        <p class="copyright">© 2026 MyTFSA · All rights reserved.</p>
+      </footer>
+    </div>
+    <script type="module" src="/src/pages/static.js"></script>
+  </body>
+</html>
