@@ -6,7 +6,7 @@ const STRINGS = {
   en: {
     tagline: 'Your TFSA room, figured out.',
     description:
-      'MyTFSA tracks every contribution and withdrawal across your accounts and tells you exactly how much TFSA room you have left — so you never over-contribute, and never pay the CRA’s 1%-per-month penalty by accident.',
+      'MyTFSA tracks every contribution and withdrawal across your accounts and tells you exactly how much TFSA room you have left - so you never over-contribute, and never pay the CRA’s 1%-per-month penalty by accident.',
     comingSoon: 'Coming soon to iOS and Android',
     appStoreTop: 'Download on the',
     appStoreName: 'App Store',
@@ -15,7 +15,7 @@ const STRINGS = {
     features: [
       {
         title: 'Real-time contribution room',
-        body: 'Deposits count the moment they happen. Withdrawals come back every January 1 — exactly how the CRA rules work.',
+        body: 'Deposits count the moment they happen. Withdrawals come back every January 1 - exactly how the CRA rules work.',
       },
       {
         title: 'Over-contribution warnings',
@@ -30,7 +30,7 @@ const STRINGS = {
     navCalculator: 'Room calculator',
     navRules: 'TFSA rules',
     rulesBody:
-      'TFSA rules are simple once someone keeps them straight for you: new room arrives every January 1, withdrawals are only added back the following January 1, and anything contributed over your limit is taxed 1% for every month it stays in. MyTFSA applies those rules to your actual accounts, so you understand exactly where you stand — and never pay an over-contribution penalty by accident.',
+      'TFSA rules are simple once someone keeps them straight for you: new room arrives every January 1, withdrawals are only added back the following January 1, and anything contributed over your limit is taxed 1% for every month it stays in. MyTFSA applies those rules to your actual accounts, so you understand exactly where you stand - and never pay an over-contribution penalty by accident.',
     disclaimer:
       'MyTFSA is a tracking aid, not an official CRA statement. Always confirm your contribution room in CRA My Account.',
     rights: 'All rights reserved.',
@@ -38,7 +38,7 @@ const STRINGS = {
   fr: {
     tagline: 'Votre plafond CELI, calculé pour vous.',
     description:
-      'MyTFSA suit chaque cotisation et chaque retrait dans vos comptes et vous indique exactement le plafond CELI qu’il vous reste — pour ne jamais dépasser votre limite, ni payer la pénalité de 1 % par mois de l’ARC par accident.',
+      'MyTFSA suit chaque cotisation et chaque retrait dans vos comptes et vous indique exactement le plafond CELI qu’il vous reste - pour ne jamais dépasser votre limite, ni payer la pénalité de 1 % par mois de l’ARC par accident.',
     comingSoon: 'Bientôt sur iOS et Android',
     appStoreTop: 'Télécharger dans',
     appStoreName: 'l’App Store',
@@ -47,7 +47,7 @@ const STRINGS = {
     features: [
       {
         title: 'Plafond en temps réel',
-        body: 'Les dépôts comptent dès qu’ils ont lieu. Les retraits reviennent chaque 1er janvier — exactement comme l’exige l’ARC.',
+        body: 'Les dépôts comptent dès qu’ils ont lieu. Les retraits reviennent chaque 1er janvier - exactement comme l’exige l’ARC.',
       },
       {
         title: 'Alertes de surcotisation',
@@ -62,7 +62,7 @@ const STRINGS = {
     navCalculator: 'Calculateur de plafond',
     navRules: 'Règles du CELI',
     rulesBody:
-      'Les règles du CELI sont simples quand quelqu’un les suit pour vous : un nouveau plafond arrive chaque 1er janvier, les retraits ne sont rajoutés que le 1er janvier suivant, et toute cotisation au-delà de votre plafond est imposée à 1 % pour chaque mois où elle demeure dans le compte. MyTFSA applique ces règles à vos comptes réels, pour que vous sachiez exactement où vous en êtes — sans jamais payer de pénalité de surcotisation par accident.',
+      'Les règles du CELI sont simples quand quelqu’un les suit pour vous : un nouveau plafond arrive chaque 1er janvier, les retraits ne sont rajoutés que le 1er janvier suivant, et toute cotisation au-delà de votre plafond est imposée à 1 % pour chaque mois où elle demeure dans le compte. MyTFSA applique ces règles à vos comptes réels, pour que vous sachiez exactement où vous en êtes - sans jamais payer de pénalité de surcotisation par accident.',
     disclaimer:
       'MyTFSA est un outil de suivi, pas un relevé officiel de l’ARC. Confirmez toujours votre plafond dans Mon dossier de l’ARC.',
     rights: 'Tous droits réservés.',
@@ -83,32 +83,47 @@ const LINKS = {
   fr: { home: '/mytfsa/fr/', other: '/mytfsa/', calculator: '/mytfsa/fr/calculateur-plafond-celi/', rules: '/mytfsa/fr/regles-celi/' },
 };
 const links = computed(() => LINKS[lang.value]);
+const menuOpen = ref(false);
 
 watchEffect(() => {
   document.documentElement.lang = lang.value;
   try {
     localStorage.setItem('mytfsa.lang', lang.value);
   } catch {
-    /* private mode — ignore */
+    /* private mode - ignore */
   }
 });
 </script>
 
 <template>
   <div class="page">
-    <header class="site-header">
+    <header class="site-header" :class="{ 'menu-open': menuOpen }">
       <a class="brand" :href="links.home">
         <span class="brand-tile"><img :src="glyphUrl" alt="MyTFSA logo" /></span>
         <span class="brand-name">MyTFSA</span>
       </a>
-      <nav class="site-nav">
+      <nav class="site-nav" id="primary-nav">
         <a class="nav-link" :href="links.calculator">{{ t.navCalculator }}</a>
         <a class="nav-link" :href="links.rules">{{ t.navRules }}</a>
+      </nav>
+      <div class="header-actions">
         <span class="lang-toggle" role="group" aria-label="Language / Langue">
           <a :href="lang === 'en' ? links.home : links.other" :class="{ active: lang === 'en' }">EN</a>
           <a :href="lang === 'fr' ? links.home : links.other" :class="{ active: lang === 'fr' }">FR</a>
         </span>
-      </nav>
+        <button
+          class="menu-btn"
+          type="button"
+          aria-controls="primary-nav"
+          :aria-expanded="menuOpen"
+          aria-label="Menu"
+          @click="menuOpen = !menuOpen"
+        >
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+        </button>
+      </div>
     </header>
 
     <main>
@@ -222,7 +237,9 @@ body {
   padding: 22px 0;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 22px;
+  flex-wrap: wrap;
 }
 
 .brand {
@@ -268,6 +285,7 @@ body {
   align-items: center;
   gap: 22px;
   flex-wrap: wrap;
+  margin-left: auto;
 }
 
 .site-nav .nav-link {
@@ -294,6 +312,47 @@ body {
   background: var(--deep-green);
   color: #ffffff;
   box-shadow: 0 2px 6px rgba(8, 54, 38, 0.3);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.menu-btn {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  gap: 5px;
+  width: 42px;
+  height: 38px;
+  padding: 0 10px;
+  background: var(--bg-soft);
+  border: 1px solid var(--separator);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.menu-bar {
+  display: block;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--ink);
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.site-header.menu-open .menu-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.site-header.menu-open .menu-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.site-header.menu-open .menu-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 .footer-links {
@@ -542,33 +601,42 @@ body {
   }
 }
 
-/* Mobile header: brand + language toggle on the first row, page links on
-   their own row below (nav uses display:contents so the header's flex
-   layout orders all four items directly). */
-@media (max-width: 640px) {
+/* Mobile header: brand and actions on one row; the page links collapse
+   behind the hamburger button. */
+@media (max-width: 720px) {
   .site-header {
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    column-gap: 18px;
-    row-gap: 12px;
+    column-gap: 14px;
+    row-gap: 0;
     padding: 16px 0 14px;
   }
 
-  .site-nav {
-    display: contents;
-  }
-
-  .brand {
-    order: 1;
-  }
-
-  .lang-toggle {
-    order: 2;
+  .header-actions {
     margin-left: auto;
   }
 
-  .site-nav .nav-link {
+  .menu-btn {
+    display: inline-flex;
+  }
+
+  .site-nav {
     order: 3;
+    flex-basis: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    margin-left: 0;
+    margin-top: 12px;
+  }
+
+  .site-header.menu-open .site-nav {
+    display: flex;
+  }
+
+  .site-nav .nav-link {
+    padding: 13px 2px;
+    border-top: 1px solid var(--separator);
+    font-size: 15px;
     white-space: nowrap;
   }
 }

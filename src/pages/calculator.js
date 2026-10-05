@@ -1,6 +1,9 @@
 import '../shared/seo.css';
+import { initMenu } from '../shared/menu.js';
 import { computeRoom, formatMoney, LAST_KNOWN_LIMIT_YEAR } from '../shared/tfsa-math.js';
 import { CALC_STRINGS } from '../shared/calc-strings.js';
+
+initMenu();
 
 const lang = document.documentElement.lang === 'fr' ? 'fr' : 'en';
 const s = CALC_STRINGS[lang];

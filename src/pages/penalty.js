@@ -1,4 +1,7 @@
 import '../shared/seo.css';
+import { initMenu } from '../shared/menu.js';
+
+initMenu();
 
 const lang = document.documentElement.lang === 'fr' ? 'fr' : 'en';
 const $ = (id) => document.getElementById(id);
