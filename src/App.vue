@@ -182,6 +182,7 @@ watchEffect(() => {
       <nav class="footer-links">
         <a :href="links.calculator">{{ t.navCalculator }}</a>
         <a :href="links.rules">{{ t.navRules }}</a>
+        <a href="mailto:support@mytfsa.app">support@mytfsa.app</a>
       </nav>
       <p class="disclaimer">{{ t.disclaimer }}</p>
       <p class="copyright">© 2026 MyTFSA · {{ t.rights }}</p>
