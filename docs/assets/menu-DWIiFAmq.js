@@ -1,0 +1,1 @@
+function i(){const t=document.querySelector(".site-header"),n=document.querySelector(".menu-btn");if(!t||!n)return;const s=e=>{t.classList.toggle("menu-open",e),n.setAttribute("aria-expanded",String(e))};n.addEventListener("click",()=>{s(!t.classList.contains("menu-open"))}),document.addEventListener("keydown",e=>{e.key==="Escape"&&s(!1)})}export{i};
