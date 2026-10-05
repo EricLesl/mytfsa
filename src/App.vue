@@ -26,6 +26,11 @@ const STRINGS = {
         body: 'Connect your bank and let contributions and withdrawals import themselves. No spreadsheets, no guessing.',
       },
     ],
+    rulesTitle: 'Know the TFSA rules. Skip the penalties.',
+    navCalculator: 'Room calculator',
+    navRules: 'TFSA rules',
+    rulesBody:
+      'TFSA rules are simple once someone keeps them straight for you: new room arrives every January 1, withdrawals are only added back the following January 1, and anything contributed over your limit is taxed 1% for every month it stays in. MyTFSA applies those rules to your actual accounts, so you understand exactly where you stand — and never pay an over-contribution penalty by accident.',
     disclaimer:
       'MyTFSA is a tracking aid, not an official CRA statement. Always confirm your contribution room in CRA My Account.',
     rights: 'All rights reserved.',
@@ -53,16 +58,31 @@ const STRINGS = {
         body: 'Connectez votre banque et laissez vos cotisations et retraits s’importer tout seuls. Aucun tableur, aucune devinette.',
       },
     ],
+    rulesTitle: 'Connaissez les règles du CELI. Évitez les pénalités.',
+    navCalculator: 'Calculateur de plafond',
+    navRules: 'Règles du CELI',
+    rulesBody:
+      'Les règles du CELI sont simples quand quelqu’un les suit pour vous : un nouveau plafond arrive chaque 1er janvier, les retraits ne sont rajoutés que le 1er janvier suivant, et toute cotisation au-delà de votre plafond est imposée à 1 % pour chaque mois où elle demeure dans le compte. MyTFSA applique ces règles à vos comptes réels, pour que vous sachiez exactement où vous en êtes — sans jamais payer de pénalité de surcotisation par accident.',
     disclaimer:
       'MyTFSA est un outil de suivi, pas un relevé officiel de l’ARC. Confirmez toujours votre plafond dans Mon dossier de l’ARC.',
     rights: 'Tous droits réservés.',
   },
 };
 
+// Each language has its own URL (/ and /fr/) so search engines and shared
+// links land on the right language. The entry HTML sets
+// <html data-default-lang="en|fr">; localStorage is only a fallback.
+const pageDefault = document.documentElement.dataset.defaultLang;
 const stored =
   typeof localStorage !== 'undefined' ? localStorage.getItem('mytfsa.lang') : null;
-const lang = ref(stored === 'fr' ? 'fr' : 'en');
+const lang = ref(pageDefault === 'fr' || stored === 'fr' ? 'fr' : 'en');
 const t = computed(() => STRINGS[lang.value]);
+
+const LINKS = {
+  en: { home: '/mytfsa/', other: '/mytfsa/fr/', calculator: '/mytfsa/tfsa-room-calculator/', rules: '/mytfsa/tfsa-rules/' },
+  fr: { home: '/mytfsa/fr/', other: '/mytfsa/', calculator: '/mytfsa/fr/calculateur-plafond-celi/', rules: '/mytfsa/fr/regles-celi/' },
+};
+const links = computed(() => LINKS[lang.value]);
 
 watchEffect(() => {
   document.documentElement.lang = lang.value;
@@ -72,27 +92,23 @@ watchEffect(() => {
     /* private mode — ignore */
   }
 });
-
-function setLang(next) {
-  lang.value = next;
-}
 </script>
 
 <template>
   <div class="page">
     <header class="site-header">
-      <a class="brand" href="#" @click.prevent>
+      <a class="brand" :href="links.home">
         <span class="brand-tile"><img :src="glyphUrl" alt="MyTFSA logo" /></span>
         <span class="brand-name">MyTFSA</span>
       </a>
-      <div class="lang-toggle" role="group" aria-label="Language / Langue">
-        <button type="button" :class="{ active: lang === 'en' }" @click="setLang('en')">
-          EN
-        </button>
-        <button type="button" :class="{ active: lang === 'fr' }" @click="setLang('fr')">
-          FR
-        </button>
-      </div>
+      <nav class="site-nav">
+        <a class="nav-link" :href="links.calculator">{{ t.navCalculator }}</a>
+        <a class="nav-link" :href="links.rules">{{ t.navRules }}</a>
+        <span class="lang-toggle" role="group" aria-label="Language / Langue">
+          <a :href="lang === 'en' ? links.home : links.other" :class="{ active: lang === 'en' }">EN</a>
+          <a :href="lang === 'fr' ? links.home : links.other" :class="{ active: lang === 'fr' }">FR</a>
+        </span>
+      </nav>
     </header>
 
     <main>
@@ -132,6 +148,12 @@ function setLang(next) {
         <p class="coming-soon">{{ t.comingSoon }}</p>
       </section>
 
+      <section class="rules">
+        <span class="rules-bar"></span>
+        <h2>{{ t.rulesTitle }}</h2>
+        <p>{{ t.rulesBody }}</p>
+      </section>
+
       <section class="features">
         <article v-for="feature in t.features" :key="feature.title" class="feature-card">
           <span class="feature-bar"></span>
@@ -142,6 +164,10 @@ function setLang(next) {
     </main>
 
     <footer class="site-footer">
+      <nav class="footer-links">
+        <a :href="links.calculator">{{ t.navCalculator }}</a>
+        <a :href="links.rules">{{ t.navRules }}</a>
+      </nav>
       <p class="disclaimer">{{ t.disclaimer }}</p>
       <p class="copyright">© 2026 MyTFSA · {{ t.rights }}</p>
     </footer>
@@ -237,22 +263,52 @@ body {
   gap: 2px;
 }
 
-.lang-toggle button {
-  border: 0;
-  background: transparent;
-  font: inherit;
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+
+.site-nav .nav-link {
+  color: var(--secondary);
+  text-decoration: none;
+  font-size: 14.5px;
+  font-weight: 600;
+}
+
+.site-nav .nav-link:hover {
+  color: var(--deep-green);
+}
+
+.lang-toggle a {
   font-size: 13px;
   font-weight: 600;
   color: var(--secondary);
   padding: 6px 14px;
   border-radius: 999px;
-  cursor: pointer;
+  text-decoration: none;
 }
 
-.lang-toggle button.active {
+.lang-toggle a.active {
   background: var(--deep-green);
   color: #ffffff;
   box-shadow: 0 2px 6px rgba(8, 54, 38, 0.3);
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.footer-links a {
+  color: var(--secondary);
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 500;
 }
 
 /* Hero */
@@ -369,6 +425,40 @@ body {
   font-size: 13.5px;
   font-weight: 500;
   color: var(--tertiary);
+}
+
+/* Rules */
+.rules {
+  width: min(760px, 100% - 40px);
+  margin: 48px auto 0;
+  text-align: center;
+  background: var(--soft-green);
+  border: 1px solid var(--separator);
+  border-radius: 20px;
+  padding: 30px 30px 32px;
+}
+
+.rules-bar {
+  display: block;
+  width: 34px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--gold);
+  margin: 0 auto 16px;
+}
+
+.rules h2 {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--deep-green);
+}
+
+.rules p {
+  margin-top: 10px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--secondary);
 }
 
 /* Features */
