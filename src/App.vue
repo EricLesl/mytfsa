@@ -541,4 +541,35 @@ body {
     justify-content: center;
   }
 }
+
+/* Mobile header: brand + language toggle on the first row, page links on
+   their own row below (nav uses display:contents so the header's flex
+   layout orders all four items directly). */
+@media (max-width: 640px) {
+  .site-header {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    column-gap: 18px;
+    row-gap: 12px;
+    padding: 16px 0 14px;
+  }
+
+  .site-nav {
+    display: contents;
+  }
+
+  .brand {
+    order: 1;
+  }
+
+  .lang-toggle {
+    order: 2;
+    margin-left: auto;
+  }
+
+  .site-nav .nav-link {
+    order: 3;
+    white-space: nowrap;
+  }
+}
 </style>

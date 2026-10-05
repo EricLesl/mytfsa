@@ -282,6 +282,26 @@ table.limits tr.total td { font-weight: 700; border-top: 2px solid var(--deep-gr
 .copyright { margin-top: 10px; font-size: 13px; color: var(--tertiary); }
 
 @media (max-width: 560px) {
-  .site-nav { gap: 14px; }
   .result-hero .v { font-size: 32px; }
+}
+
+/* Mobile header: brand + language toggle share the first row, nav links
+   get their own full row (display:contents lets the header lay them out). */
+@media (max-width: 720px) {
+  .site-header {
+    flex-wrap: wrap;
+    column-gap: 18px;
+    row-gap: 10px;
+    padding: 16px 0 14px;
+  }
+
+  .site-nav { display: contents; }
+
+  .brand { order: 1; }
+
+  .lang-toggle { order: 2; margin-left: auto; }
+
+  .site-nav a.nav-link { order: 3; white-space: nowrap; }
+
+  .lang-toggle a { padding: 6px 13px; }
 }
