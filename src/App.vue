@@ -75,7 +75,13 @@ const STRINGS = {
 const pageDefault = document.documentElement.dataset.defaultLang;
 const stored =
   typeof localStorage !== 'undefined' ? localStorage.getItem('mytfsa.lang') : null;
-const lang = ref(pageDefault === 'fr' || stored === 'fr' ? 'fr' : 'en');
+const lang = ref(
+  pageDefault === 'fr' || pageDefault === 'en'
+    ? pageDefault
+    : stored === 'fr'
+      ? 'fr'
+      : 'en',
+);
 const t = computed(() => STRINGS[lang.value]);
 
 const LINKS = {
@@ -108,8 +114,8 @@ watchEffect(() => {
       </nav>
       <div class="header-actions">
         <span class="lang-toggle" role="group" aria-label="Language / Langue">
-          <a :href="lang === 'en' ? links.home : links.other" :class="{ active: lang === 'en' }">EN</a>
-          <a :href="lang === 'fr' ? links.home : links.other" :class="{ active: lang === 'fr' }">FR</a>
+          <a :href="LINKS.en.home" :class="{ active: lang === 'en' }">EN</a>
+          <a :href="LINKS.fr.home" :class="{ active: lang === 'fr' }">FR</a>
         </span>
         <button
           class="menu-btn"
