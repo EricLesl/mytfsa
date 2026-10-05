@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/mytfsa/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculateur de plafond de cotisation CELI (Canada, 2026) | MyTFSA</title>
+    <meta
+      name="description"
+      content="Calculateur gratuit de plafond de cotisation CELI pour les Canadiens. Entrez votre année de naissance, vos cotisations et vos retraits pour savoir exactement le plafond qu'il vous reste — et si vous l'avez dépassé."
+    />
+    <link rel="canonical" href="https://ericlesl.github.io/mytfsa/fr/calculateur-plafond-celi/" />
+    <link rel="alternate" hreflang="en-ca" href="https://ericlesl.github.io/mytfsa/tfsa-room-calculator/" />
+    <link rel="alternate" hreflang="fr-ca" href="https://ericlesl.github.io/mytfsa/fr/calculateur-plafond-celi/" />
+    <link rel="alternate" hreflang="x-default" href="https://ericlesl.github.io/mytfsa/tfsa-room-calculator/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MyTFSA" />
+    <meta property="og:title" content="Calculateur de plafond de cotisation CELI (Canada, 2026)" />
+    <meta
+      property="og:description"
+      content="Sachez exactement le plafond de cotisation CELI qu'il vous reste — dans tous vos comptes — et si vous avez dépassé votre limite."
+    />
+    <meta property="og:url" content="https://ericlesl.github.io/mytfsa/fr/calculateur-plafond-celi/" />
+    <meta property="og:image" content="https://ericlesl.github.io/mytfsa/mt-glyph.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Pourquoi le résultat diffère-t-il du plafond affiché dans Mon dossier de l'ARC?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Le chiffre de l'ARC provient de déclarations que vos banques et courtiers envoient une fois par année; il accuse donc des mois de retard et ne tient pas compte de vos activités de l'année en cours. L'ARC elle-même recommande aux Canadiens de tenir leurs propres dossiers. Vos totaux de cotisations et de retraits sont la source fiable."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Les retraits CELI reviennent-ils immédiatement dans mon plafond?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Non. Un retrait est rajouté à votre plafond de cotisation le 1er janvier de l'année suivante — jamais la même année. Cotiser de nouveau un retrait la même année est la façon la plus courante de dépasser son plafond par accident."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Que faire si j'ai des CELI dans plus d'une banque ou firme de courtage?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Additionnez tous vos comptes. L'ARC considère l'ensemble de vos cotisations et retraits dans tous vos CELI — aucune institution ne peut voir votre plafond total."
+            }
+          }
+        ]
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" crossorigin src="/mytfsa/assets/modulepreload-polyfill-B5Qt9EMX.js"></script>
+    <script type="module" crossorigin src="/mytfsa/assets/calculator-DUd-xwcF.js"></script>
+    <link rel="stylesheet" crossorigin href="/mytfsa/assets/seo-BVTrGuYZ.css">
+  </head>
+  <body>
+    <div class="page">
+      <header class="site-header">
+        <a class="brand" href="/mytfsa/fr/">
+          <span class="brand-tile"><img src="/mytfsa/mt-glyph.png" alt="Logo MyTFSA" /></span>
+          <span class="brand-name">MyTFSA</span>
+        </a>
+        <nav class="site-nav">
+          <a class="nav-link" href="/mytfsa/fr/calculateur-plafond-celi/" aria-current="page">Calculateur de plafond</a>
+          <a class="nav-link" href="/mytfsa/fr/regles-celi/">Règles du CELI</a>
+          <span class="lang-toggle" role="group" aria-label="Language / Langue">
+            <a href="/mytfsa/tfsa-room-calculator/">EN</a>
+            <a href="/mytfsa/fr/calculateur-plafond-celi/" class="active">FR</a>
+          </span>
+        </nav>
+      </header>
+
+      <main class="content">
+        <h1>Calculateur de plafond de cotisation CELI</h1>
+        <p class="lede">
+          Votre vrai plafond CELI, dans tous vos comptes. Entrez trois totaux et votre année de
+          naissance — aucune inscription, rien n’est conservé ni envoyé.
+        </p>
+
+        <form class="calc" id="calcForm" autocomplete="off">
+          <div class="field">
+            <label for="birthYear">Année de naissance</label>
+            <input id="birthYear" type="number" inputmode="numeric" placeholder="ex. 1990" min="1930" max="2026" />
+          </div>
+          <div class="field">
+            <label for="residentSince">Première année comme résident fiscal canadien (laissez vide si toujours)</label>
+            <input id="residentSince" type="number" inputmode="numeric" placeholder="ex. 2015" min="1930" max="2026" />
+          </div>
+          <div class="field">
+            <label for="contributed">Total cotisé à tous vos CELI, à vie (CAD)</label>
+            <input id="contributed" type="number" inputmode="decimal" placeholder="ex. 85000" min="0" />
+          </div>
+          <div class="field">
+            <label for="withdrawnBefore">Total retiré avant cette année (CAD)</label>
+            <input id="withdrawnBefore" type="number" inputmode="decimal" placeholder="ex. 10000" min="0" />
+          </div>
+          <div class="field">
+            <label for="withdrawnThis">Total retiré cette année (CAD)</label>
+            <input id="withdrawnThis" type="number" inputmode="decimal" placeholder="ex. 0" min="0" />
+          </div>
+          <p class="hint">Additionnez tous vos CELI — banque, courtage, tous. L’ARC les compte ensemble.</p>
+
+          <div class="results" id="results">
+            <div class="result-hero">
+              <div class="k">Plafond de cotisation restant aujourd’hui</div>
+              <div class="v good" id="roomValue">0 $</div>
+            </div>
+            <div class="result-row">
+              <span class="k">Plafond accumulé depuis <span id="earnedStart">—</span></span>
+              <span class="v" id="earnedValue">0 $</span>
+            </div>
+            <div class="result-row" id="comingRow" style="display: none">
+              <span class="k">De retour le 1er janvier</span>
+              <span class="v" id="comingValue">0 $</span>
+            </div>
+            <p class="fineprint" id="comingNote" style="display: none">
+              Provenant des retraits de cette année — plus le nouveau plafond annuel dès que l’ARC
+              l’annoncera.
+            </p>
+            <p class="verdict good" id="verdict">Vous respectez votre plafond.</p>
+            <div class="over-box" id="overBox" style="display: none">
+              <p>Vous dépassez votre plafond de <strong id="overValue">0 $</strong>.</p>
+              <div class="result-row">
+                <span class="k">Taxe estimée de l’ARC tant que l’excédent demeure</span>
+                <span class="v" id="penaltyValue">0 $ /mois</span>
+              </div>
+              <p>
+                L’ARC impose le montant d’excédent le plus élevé dans votre CELI à 1 % pour chaque
+                mois où il y demeure, jusqu’à ce que l’excédent soit retiré ou absorbé par le
+                nouveau plafond du 1er janvier. Retirez l’excédent dès que possible et produisez le
+                formulaire RC243. Voyez le
+                <a href="/mytfsa/fr/penalite-exces-celi/">guide sur la pénalité pour excédent</a>.
+              </p>
+            </div>
+          </div>
+
+          <p class="disclaimer">
+            Estimation seulement, fondée sur les plafonds annuels publiés par l’ARC jusqu’en 2026.
+            Outil de suivi, pas un relevé officiel de l’ARC — confirmez votre plafond dans Mon
+            dossier de l’ARC.
+          </p>
+        </form>
+
+        <h2>Comment fonctionne ce calculateur</h2>
+        <p>
+          Votre plafond CELI commence à s’accumuler l’année de vos 18 ans (ou l’année où vous êtes
+          devenu résident fiscal canadien, si c’est plus tard), au montant annuel complet pour
+          cette année-là — l’ARC ne fait aucun calcul au prorata. Chaque année suivante ajoute le
+          nouveau plafond annuel, et le plafond inutilisé se reporte indéfiniment.
+        </p>
+        <p>
+          Deux règles causent la plupart des dégâts. Les cotisations réduisent votre plafond dès
+          qu’elles ont lieu, dans <em>l’ensemble</em> de vos CELI. Et un retrait ne revient que le
+          1er janvier suivant — le recotiser la même année est la façon classique de dépasser sa
+          limite sans s’en apercevoir. Si vos cotisations totales dépassent votre plafond accumulé
+          plus les retraits des années précédentes, la différence est un excédent, imposé à 1 % par
+          mois.
+        </p>
+
+        <div class="callout">
+          <p>
+            <strong>Fatigué de faire ce calcul à la main?</strong> C’est exactement le problème que
+            MyTFSA règle — il suit chaque cotisation et chaque retrait dans vos comptes
+            automatiquement, pour que ce chiffre soit toujours à jour.
+          </p>
+        </div>
+
+        <h2>Questions fréquentes</h2>
+        <h3>Pourquoi le résultat diffère-t-il du plafond affiché dans Mon dossier de l’ARC?</h3>
+        <p>
+          Le chiffre de l’ARC provient de déclarations que vos banques et courtiers envoient une
+          fois par année; il accuse donc des mois de retard et ne tient pas compte de vos activités
+          de l’année en cours. L’ARC elle-même recommande aux Canadiens de tenir leurs propres
+          dossiers. Vos totaux de cotisations et de retraits sont la source fiable.
+        </p>
+        <h3>Les retraits CELI reviennent-ils immédiatement dans mon plafond?</h3>
+        <p>
+          Non. Un retrait est rajouté à votre plafond de cotisation le 1er janvier de l’année
+          suivante — jamais la même année. Cotiser de nouveau un retrait la même année est la façon
+          la plus courante de dépasser son plafond par accident.
+        </p>
+        <h3>Que faire si j’ai des CELI dans plus d’une banque ou firme de courtage?</h3>
+        <p>
+          Additionnez tous vos comptes. L’ARC considère l’ensemble de vos cotisations et retraits
+          dans tous vos CELI — aucune institution ne peut voir votre plafond total.
+        </p>
+        <p>
+          Pour tout comprendre, lisez <a href="/mytfsa/fr/regles-celi/">comment fonctionne
+          vraiment le plafond CELI</a>, avec les limites annuelles de chaque année depuis 2009.
+        </p>
+
+        <div class="app-cta">
+          <h2>Ne faites plus jamais ce calcul à la main</h2>
+          <p>
+            MyTFSA se connecte à vos comptes et garde votre vrai plafond à jour — avec une alerte
+            avant que vous dépassiez.
+          </p>
+          <span class="soon">Bientôt sur iOS et Android</span>
+        </div>
+      </main>
+
+      <footer class="site-footer">
+        <nav class="footer-links">
+          <a href="/mytfsa/fr/calculateur-plafond-celi/">Calculateur de plafond</a>
+          <a href="/mytfsa/fr/penalite-exces-celi/">Pénalité pour excédent</a>
+          <a href="/mytfsa/fr/regles-celi/">Règles du CELI</a>
+          <a href="/mytfsa/tfsa-room-calculator/">In English</a>
+        </nav>
+        <p class="disclaimer">
+          MyTFSA est un outil de suivi, pas un relevé officiel de l’ARC. Confirmez toujours votre
+          plafond dans Mon dossier de l’ARC.
+        </p>
+        <p class="copyright">© 2026 MyTFSA · Tous droits réservés.</p>
+      </footer>
+    </div>
+  </body>
+</html>
