@@ -4,7 +4,7 @@ One-page website for the **MyTFSA** app (TFSA contribution room tracker) —
 currently in TestFlight. Built with Vue 3 + Vite; the production build is
 committed to `docs/` and served by GitHub Pages:
 
-**https://ericlesl.github.io/mytfsa/**
+**https://mytfsa.app/**
 
 ## Develop
 

@@ -5,8 +5,8 @@ import { fileURLToPath } from 'node:url';
 
 const root = fileURLToPath(new URL('.', import.meta.url));
 
-// GitHub Pages serves this repo at https://ericlesl.github.io/mytfsa/,
-// so all asset URLs need the /mytfsa/ base. When a custom domain is
+// GitHub Pages serves this repo at https://mytfsa.app/,
+// so all asset URLs need the / base. When a custom domain is
 // added later, change base to '/' and add docs/CNAME.
 //
 // Multi-page build: every page below is a real HTML file (not a client
@@ -14,7 +14,7 @@ const root = fileURLToPath(new URL('.', import.meta.url));
 // with public/sitemap.xml.
 export default defineConfig({
   plugins: [vue()],
-  base: '/mytfsa/',
+  base: '/',
   build: {
     outDir: 'docs',
     emptyOutDir: true,
@@ -25,6 +25,8 @@ export default defineConfig({
         roomCalculator: resolve(root, 'tfsa-room-calculator/index.html'),
         overContributionPenalty: resolve(root, 'tfsa-over-contribution-penalty/index.html'),
         tfsaRules: resolve(root, 'tfsa-rules/index.html'),
+        privacy: resolve(root, 'privacy/index.html'),
+        terms: resolve(root, 'terms/index.html'),
         frRoomCalculator: resolve(root, 'fr/calculateur-plafond-celi/index.html'),
         frPenalty: resolve(root, 'fr/penalite-exces-celi/index.html'),
         frRules: resolve(root, 'fr/regles-celi/index.html'),

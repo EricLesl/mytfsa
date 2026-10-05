@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ericlesl.github.io/mytfsa/sitemap.xml
+Sitemap: https://mytfsa.app/sitemap.xml

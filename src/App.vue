@@ -79,8 +79,8 @@ const lang = ref(pageDefault === 'fr' || stored === 'fr' ? 'fr' : 'en');
 const t = computed(() => STRINGS[lang.value]);
 
 const LINKS = {
-  en: { home: '/mytfsa/', other: '/mytfsa/fr/', calculator: '/mytfsa/tfsa-room-calculator/', rules: '/mytfsa/tfsa-rules/' },
-  fr: { home: '/mytfsa/fr/', other: '/mytfsa/', calculator: '/mytfsa/fr/calculateur-plafond-celi/', rules: '/mytfsa/fr/regles-celi/' },
+  en: { home: '/', other: '/fr/', calculator: '/tfsa-room-calculator/', rules: '/tfsa-rules/' },
+  fr: { home: '/fr/', other: '/', calculator: '/fr/calculateur-plafond-celi/', rules: '/fr/regles-celi/' },
 };
 const links = computed(() => LINKS[lang.value]);
 const menuOpen = ref(false);
