@@ -7,7 +7,7 @@
     <title>Calculateur de plafond de cotisation CELI (Canada, 2026) | MyTFSA</title>
     <meta
       name="description"
-      content="Calculateur gratuit de plafond de cotisation CELI pour les Canadiens. Entrez votre année de naissance, vos cotisations et vos retraits pour savoir exactement le plafond qu'il vous reste — et si vous l'avez dépassé."
+      content="Calculateur gratuit de plafond de cotisation CELI pour les Canadiens. Entrez votre année de naissance, vos cotisations et vos retraits pour savoir exactement le plafond qu'il vous reste - et si vous l'avez dépassé."
     />
     <link rel="canonical" href="https://ericlesl.github.io/mytfsa/fr/calculateur-plafond-celi/" />
     <link rel="alternate" hreflang="en-ca" href="https://ericlesl.github.io/mytfsa/tfsa-room-calculator/" />
@@ -18,7 +18,7 @@
     <meta property="og:title" content="Calculateur de plafond de cotisation CELI (Canada, 2026)" />
     <meta
       property="og:description"
-      content="Sachez exactement le plafond de cotisation CELI qu'il vous reste — dans tous vos comptes — et si vous avez dépassé votre limite."
+      content="Sachez exactement le plafond de cotisation CELI qu'il vous reste - dans tous vos comptes - et si vous avez dépassé votre limite."
     />
     <meta property="og:url" content="https://ericlesl.github.io/mytfsa/fr/calculateur-plafond-celi/" />
     <meta property="og:image" content="https://ericlesl.github.io/mytfsa/mt-glyph.png" />
@@ -40,7 +40,7 @@
             "name": "Les retraits CELI reviennent-ils immédiatement dans mon plafond?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Non. Un retrait est rajouté à votre plafond de cotisation le 1er janvier de l'année suivante — jamais la même année. Cotiser de nouveau un retrait la même année est la façon la plus courante de dépasser son plafond par accident."
+              "text": "Non. Un retrait est rajouté à votre plafond de cotisation le 1er janvier de l'année suivante - jamais la même année. Cotiser de nouveau un retrait la même année est la façon la plus courante de dépasser son plafond par accident."
             }
           },
           {
@@ -48,7 +48,7 @@
             "name": "Que faire si j'ai des CELI dans plus d'une banque ou firme de courtage?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Additionnez tous vos comptes. L'ARC considère l'ensemble de vos cotisations et retraits dans tous vos CELI — aucune institution ne peut voir votre plafond total."
+              "text": "Additionnez tous vos comptes. L'ARC considère l'ensemble de vos cotisations et retraits dans tous vos CELI - aucune institution ne peut voir votre plafond total."
             }
           }
         ]
@@ -68,21 +68,28 @@
           <span class="brand-tile"><img src="/mytfsa/mt-glyph.png" alt="Logo MyTFSA" /></span>
           <span class="brand-name">MyTFSA</span>
         </a>
-        <nav class="site-nav">
+        <nav class="site-nav" id="primary-nav">
           <a class="nav-link" href="/mytfsa/fr/calculateur-plafond-celi/" aria-current="page">Calculateur de plafond</a>
           <a class="nav-link" href="/mytfsa/fr/regles-celi/">Règles du CELI</a>
-          <span class="lang-toggle" role="group" aria-label="Language / Langue">
-            <a href="/mytfsa/tfsa-room-calculator/">EN</a>
-            <a href="/mytfsa/fr/calculateur-plafond-celi/" class="active">FR</a>
-          </span>
         </nav>
+        <div class="header-actions">
+          <span class="lang-toggle" role="group" aria-label="Language / Langue">
+          <a href="/mytfsa/tfsa-room-calculator/">EN</a>
+          <a href="/mytfsa/fr/calculateur-plafond-celi/" class="active">FR</a>
+        </span>
+          <button class="menu-btn" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu">
+            <span class="menu-bar"></span>
+            <span class="menu-bar"></span>
+            <span class="menu-bar"></span>
+          </button>
+        </div>
       </header>
 
       <main class="content">
         <h1>Calculateur de plafond de cotisation CELI</h1>
         <p class="lede">
           Votre vrai plafond CELI, dans tous vos comptes. Entrez trois totaux et votre année de
-          naissance — aucune inscription, rien n’est conservé ni envoyé.
+          naissance - aucune inscription, rien n’est conservé ni envoyé.
         </p>
 
         <form class="calc" id="calcForm" autocomplete="off">
@@ -106,7 +113,7 @@
             <label for="withdrawnThis">Total retiré cette année (CAD)</label>
             <input id="withdrawnThis" type="number" inputmode="decimal" placeholder="ex. 0" min="0" />
           </div>
-          <p class="hint">Additionnez tous vos CELI — banque, courtage, tous. L’ARC les compte ensemble.</p>
+          <p class="hint">Additionnez tous vos CELI - banque, courtage, tous. L’ARC les compte ensemble.</p>
 
           <div class="results" id="results">
             <div class="result-hero">
@@ -114,7 +121,7 @@
               <div class="v good" id="roomValue">0 $</div>
             </div>
             <div class="result-row">
-              <span class="k">Plafond accumulé depuis <span id="earnedStart">—</span></span>
+              <span class="k">Plafond accumulé depuis <span id="earnedStart">-</span></span>
               <span class="v" id="earnedValue">0 $</span>
             </div>
             <div class="result-row" id="comingRow" style="display: none">
@@ -122,7 +129,7 @@
               <span class="v" id="comingValue">0 $</span>
             </div>
             <p class="fineprint" id="comingNote" style="display: none">
-              Provenant des retraits de cette année — plus le nouveau plafond annuel dès que l’ARC
+              Provenant des retraits de cette année - plus le nouveau plafond annuel dès que l’ARC
               l’annoncera.
             </p>
             <p class="verdict good" id="verdict">Vous respectez votre plafond.</p>
@@ -144,7 +151,7 @@
 
           <p class="disclaimer">
             Estimation seulement, fondée sur les plafonds annuels publiés par l’ARC jusqu’en 2026.
-            Outil de suivi, pas un relevé officiel de l’ARC — confirmez votre plafond dans Mon
+            Outil de suivi, pas un relevé officiel de l’ARC - confirmez votre plafond dans Mon
             dossier de l’ARC.
           </p>
         </form>
@@ -153,13 +160,13 @@
         <p>
           Votre plafond CELI commence à s’accumuler l’année de vos 18 ans (ou l’année où vous êtes
           devenu résident fiscal canadien, si c’est plus tard), au montant annuel complet pour
-          cette année-là — l’ARC ne fait aucun calcul au prorata. Chaque année suivante ajoute le
+          cette année-là - l’ARC ne fait aucun calcul au prorata. Chaque année suivante ajoute le
           nouveau plafond annuel, et le plafond inutilisé se reporte indéfiniment.
         </p>
         <p>
           Deux règles causent la plupart des dégâts. Les cotisations réduisent votre plafond dès
           qu’elles ont lieu, dans <em>l’ensemble</em> de vos CELI. Et un retrait ne revient que le
-          1er janvier suivant — le recotiser la même année est la façon classique de dépasser sa
+          1er janvier suivant - le recotiser la même année est la façon classique de dépasser sa
           limite sans s’en apercevoir. Si vos cotisations totales dépassent votre plafond accumulé
           plus les retraits des années précédentes, la différence est un excédent, imposé à 1 % par
           mois.
@@ -168,7 +175,7 @@
         <div class="callout">
           <p>
             <strong>Fatigué de faire ce calcul à la main?</strong> C’est exactement le problème que
-            MyTFSA règle — il suit chaque cotisation et chaque retrait dans vos comptes
+            MyTFSA règle - il suit chaque cotisation et chaque retrait dans vos comptes
             automatiquement, pour que ce chiffre soit toujours à jour.
           </p>
         </div>
@@ -184,13 +191,13 @@
         <h3>Les retraits CELI reviennent-ils immédiatement dans mon plafond?</h3>
         <p>
           Non. Un retrait est rajouté à votre plafond de cotisation le 1er janvier de l’année
-          suivante — jamais la même année. Cotiser de nouveau un retrait la même année est la façon
+          suivante - jamais la même année. Cotiser de nouveau un retrait la même année est la façon
           la plus courante de dépasser son plafond par accident.
         </p>
         <h3>Que faire si j’ai des CELI dans plus d’une banque ou firme de courtage?</h3>
         <p>
           Additionnez tous vos comptes. L’ARC considère l’ensemble de vos cotisations et retraits
-          dans tous vos CELI — aucune institution ne peut voir votre plafond total.
+          dans tous vos CELI - aucune institution ne peut voir votre plafond total.
         </p>
         <p>
           Pour tout comprendre, lisez <a href="/mytfsa/fr/regles-celi/">comment fonctionne
@@ -200,7 +207,7 @@
         <div class="app-cta">
           <h2>Ne faites plus jamais ce calcul à la main</h2>
           <p>
-            MyTFSA se connecte à vos comptes et garde votre vrai plafond à jour — avec une alerte
+            MyTFSA se connecte à vos comptes et garde votre vrai plafond à jour - avec une alerte
             avant que vous dépassiez.
           </p>
           <span class="soon">Bientôt sur iOS et Android</span>
