@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/mytfsa/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculateur de pénalité CELI : l’excédent taxé à 1 % par mois | MyTFSA</title>
+    <meta
+      name="description"
+      content="Vous avez cotisé plus que votre plafond CELI? Estimez la taxe de 1 % par mois de l'ARC sur votre excédent, comprenez comment elle se calcule et quoi faire ensuite (formulaire RC243)."
+    />
+    <link rel="canonical" href="https://ericlesl.github.io/mytfsa/fr/penalite-exces-celi/" />
+    <link rel="alternate" hreflang="en-ca" href="https://ericlesl.github.io/mytfsa/tfsa-over-contribution-penalty/" />
+    <link rel="alternate" hreflang="fr-ca" href="https://ericlesl.github.io/mytfsa/fr/penalite-exces-celi/" />
+    <link rel="alternate" hreflang="x-default" href="https://ericlesl.github.io/mytfsa/tfsa-over-contribution-penalty/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MyTFSA" />
+    <meta property="og:title" content="Calculateur de pénalité CELI : l’excédent taxé à 1 % par mois" />
+    <meta
+      property="og:description"
+      content="Estimez la taxe de 1 % par mois de l'ARC sur un excédent CELI — et quoi faire pour l'arrêter."
+    />
+    <meta property="og:url" content="https://ericlesl.github.io/mytfsa/fr/penalite-exces-celi/" />
+    <meta property="og:image" content="https://ericlesl.github.io/mytfsa/mt-glyph.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="page">
+      <header class="site-header">
+        <a class="brand" href="/mytfsa/fr/">
+          <span class="brand-tile"><img src="/mytfsa/mt-glyph.png" alt="Logo MyTFSA" /></span>
+          <span class="brand-name">MyTFSA</span>
+        </a>
+        <nav class="site-nav">
+          <a class="nav-link" href="/mytfsa/fr/calculateur-plafond-celi/">Calculateur de plafond</a>
+          <a class="nav-link" href="/mytfsa/fr/regles-celi/">Règles du CELI</a>
+          <span class="lang-toggle" role="group" aria-label="Language / Langue">
+            <a href="/mytfsa/tfsa-over-contribution-penalty/">EN</a>
+            <a href="/mytfsa/fr/penalite-exces-celi/" class="active">FR</a>
+          </span>
+        </nav>
+      </header>
+
+      <main class="content">
+        <h1>Calculateur de pénalité pour excédent CELI</h1>
+        <p class="lede">
+          Vous croyez avoir cotisé plus que votre plafond CELI? Estimez ce que la taxe de 1 % par
+          mois de l’ARC pourrait vous coûter — puis réglez ça avant que ça grossisse.
+        </p>
+
+        <form class="calc" autocomplete="off">
+          <div class="field">
+            <label for="excess">Montant d’excédent le plus élevé dans votre CELI (CAD)</label>
+            <input id="excess" type="number" inputmode="decimal" placeholder="ex. 2000" min="0" />
+          </div>
+          <div class="field">
+            <label for="months">Mois où l’excédent demeure (un mois partiel compte comme un mois complet)</label>
+            <input id="months" type="number" inputmode="numeric" placeholder="ex. 3" min="0" max="120" />
+          </div>
+
+          <div class="results">
+            <div class="result-hero">
+              <div class="k">Taxe estimée de l’ARC</div>
+              <div class="v bad" id="taxValue">0,00 $</div>
+            </div>
+          </div>
+
+          <p class="disclaimer">
+            Estimation simplifiée supposant le même excédent maximal tout le mois. Les cotisations
+            réelles de l’ARC utilisent vos montants mensuels exacts. Outil de suivi, pas un avis
+            fiscal.
+          </p>
+        </form>
+
+        <h2>Comment l’ARC la calcule</h2>
+        <p>
+          La taxe est de 1 % du <strong>montant d’excédent le plus élevé</strong> dans votre compte
+          pour chaque mois où l’excédent s’y trouve — pas 1 % de votre solde, ni un taux annuel.
+          Elle court chaque mois jusqu’à ce que l’excédent soit retiré ou absorbé par le nouveau
+          plafond du 1er janvier. Vous la déclarez sur le formulaire RC243, et l’ARC peut ajouter
+          intérêts et pénalités en cas de retard.
+        </p>
+        <p>
+          Un exemple concret : un excédent de 2 000 $ qui demeure 3 mois donne 3 × 1 % × 2 000 $ =
+          60 $ de taxe. Laissez-le une année complète et c’est 240 $ — sur de l’argent qui n’aurait
+          jamais dû être dans le compte. La taxe s’applique même si vos placements ont perdu de la
+          valeur, parce qu’elle repose sur la cotisation excédentaire, pas sur le rendement.
+        </p>
+
+        <h2>Quoi faire maintenant</h2>
+        <p>
+          Retirez le montant excédentaire (pas tout le compte) dès que vous le découvrez — cela
+          arrête le compteur à la fin du mois courant. Produisez ensuite le RC243 pour chaque année
+          où l’excédent a existé. Si l’excédent est moindre que le nouveau plafond de l’an prochain,
+          le 1er janvier peut l’absorber sans retrait, mais la taxe s’applique quand même à tous
+          les mois précédents.
+        </p>
+        <p>
+          Pas certain d’être vraiment en excédent? Vérifiez-le d’abord avec le
+          <a href="/mytfsa/fr/calculateur-plafond-celi/">calculateur de plafond CELI</a> — la
+          plupart des « excédents » sont en fait un retrait qui n’était pas encore revenu, ou un
+          deuxième compte oublié.
+        </p>
+
+        <div class="callout">
+          <p>
+            <strong>La meilleure version de cette page, c’est de ne jamais en avoir besoin.</strong>
+            MyTFSA surveille votre plafond dans tous vos comptes et vous avertit
+            <em>avant</em> qu’une cotisation vous mette en excédent.
+          </p>
+        </div>
+
+        <div class="app-cta">
+          <h2>Soyez averti avant de dépasser</h2>
+          <p>
+            MyTFSA suit votre plafond de cotisation dans tous vos comptes automatiquement, avec
+            des alertes de surcotisation intégrées.
+          </p>
+          <span class="soon">Bientôt sur iOS et Android</span>
+        </div>
+      </main>
+
+      <footer class="site-footer">
+        <nav class="footer-links">
+          <a href="/mytfsa/fr/calculateur-plafond-celi/">Calculateur de plafond</a>
+          <a href="/mytfsa/fr/penalite-exces-celi/">Pénalité pour excédent</a>
+          <a href="/mytfsa/fr/regles-celi/">Règles du CELI</a>
+          <a href="/mytfsa/tfsa-over-contribution-penalty/">In English</a>
+        </nav>
+        <p class="disclaimer">
+          MyTFSA est un outil de suivi, pas un relevé officiel de l’ARC. Confirmez toujours votre
+          plafond dans Mon dossier de l’ARC.
+        </p>
+        <p class="copyright">© 2026 MyTFSA · Tous droits réservés.</p>
+      </footer>
+    </div>
+    <script type="module" src="/src/pages/penalty.js"></script>
+  </body>
+</html>

@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/mytfsa/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TFSA Over-Contribution Penalty Calculator (1% per Month) | MyTFSA</title>
+    <meta
+      name="description"
+      content="Over-contributed to your TFSA? Estimate the CRA's 1%-per-month tax on your excess amount, see how the penalty is calculated, and learn what to do next (form RC243)."
+    />
+    <link rel="canonical" href="https://ericlesl.github.io/mytfsa/tfsa-over-contribution-penalty/" />
+    <link rel="alternate" hreflang="en-ca" href="https://ericlesl.github.io/mytfsa/tfsa-over-contribution-penalty/" />
+    <link rel="alternate" hreflang="fr-ca" href="https://ericlesl.github.io/mytfsa/fr/penalite-exces-celi/" />
+    <link rel="alternate" hreflang="x-default" href="https://ericlesl.github.io/mytfsa/tfsa-over-contribution-penalty/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MyTFSA" />
+    <meta property="og:title" content="TFSA Over-Contribution Penalty Calculator (1% per Month)" />
+    <meta
+      property="og:description"
+      content="Estimate the CRA's 1%-per-month tax on a TFSA excess amount — and what to do about it."
+    />
+    <meta property="og:url" content="https://ericlesl.github.io/mytfsa/tfsa-over-contribution-penalty/" />
+    <meta property="og:image" content="https://ericlesl.github.io/mytfsa/mt-glyph.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="page">
+      <header class="site-header">
+        <a class="brand" href="/mytfsa/">
+          <span class="brand-tile"><img src="/mytfsa/mt-glyph.png" alt="MyTFSA logo" /></span>
+          <span class="brand-name">MyTFSA</span>
+        </a>
+        <nav class="site-nav">
+          <a class="nav-link" href="/mytfsa/tfsa-room-calculator/">Room calculator</a>
+          <a class="nav-link" href="/mytfsa/tfsa-rules/">TFSA rules</a>
+          <span class="lang-toggle" role="group" aria-label="Language / Langue">
+            <a href="/mytfsa/tfsa-over-contribution-penalty/" class="active">EN</a>
+            <a href="/mytfsa/fr/penalite-exces-celi/">FR</a>
+          </span>
+        </nav>
+      </header>
+
+      <main class="content">
+        <h1>TFSA over-contribution penalty calculator</h1>
+        <p class="lede">
+          Think you put too much into your TFSA? Estimate what the CRA’s 1%-per-month tax on the
+          excess could cost — then fix it before it grows.
+        </p>
+
+        <form class="calc" autocomplete="off">
+          <div class="field">
+            <label for="excess">Highest excess amount in your TFSA (CAD)</label>
+            <input id="excess" type="number" inputmode="decimal" placeholder="e.g. 2000" min="0" />
+          </div>
+          <div class="field">
+            <label for="months">Months the excess stays in (a partial month counts as a full month)</label>
+            <input id="months" type="number" inputmode="numeric" placeholder="e.g. 3" min="0" max="120" />
+          </div>
+
+          <div class="results">
+            <div class="result-hero">
+              <div class="k">Estimated CRA tax</div>
+              <div class="v bad" id="taxValue">$0.00</div>
+            </div>
+          </div>
+
+          <p class="disclaimer">
+            Simplified estimate assuming the same highest excess all month. Real CRA assessments use
+            your exact monthly excess amounts. This is a tracking aid, not tax advice.
+          </p>
+        </form>
+
+        <h2>How the CRA calculates it</h2>
+        <p>
+          The tax is 1% of the <strong>highest excess amount</strong> in your account for each month
+          the excess is there — not 1% of your balance, and not an annual rate. It keeps running every
+          month until the excess is withdrawn or new January 1 room absorbs it. You report it on form
+          RC243, and the CRA can add interest and penalties on top if you file late.
+        </p>
+        <p>
+          A worked example: a $2,000 excess left in place for 3 months is 3 × 1% × $2,000 = a $60 tax.
+          Leave it a full year and it’s $240 — on money that was never supposed to be in the account.
+          The tax is charged even if your investments lost money, because it’s based on the excess
+          contribution, not on growth.
+        </p>
+
+        <h2>What to do now</h2>
+        <p>
+          Withdraw the excess amount (not the whole account) as soon as you discover it — that stops
+          the clock at the end of the current month. Then file RC243 for each year the excess existed.
+          If your excess is smaller than next year’s new annual room, January 1 may absorb it without
+          a withdrawal, but the tax still applies to every month before that.
+        </p>
+        <p>
+          Not sure whether you’re actually over? Work it out with the
+          <a href="/mytfsa/tfsa-room-calculator/">TFSA contribution room calculator</a> first — most
+          “over-contributions” turn out to be a withdrawal that hadn’t come back yet, or a second
+          account someone forgot they had.
+        </p>
+
+        <div class="callout">
+          <p>
+            <strong>The best version of this page is never needing it.</strong> MyTFSA watches your
+            room across every account and warns you <em>before</em> a contribution puts you over —
+            so the 1% tax stays a thing that happens to other people.
+          </p>
+        </div>
+
+        <div class="app-cta">
+          <h2>Get warned before you go over</h2>
+          <p>
+            MyTFSA tracks your contribution room across all your accounts automatically, with
+            over-contribution warnings built in.
+          </p>
+          <span class="soon">Coming soon to iOS and Android</span>
+        </div>
+      </main>
+
+      <footer class="site-footer">
+        <nav class="footer-links">
+          <a href="/mytfsa/tfsa-room-calculator/">Room calculator</a>
+          <a href="/mytfsa/tfsa-over-contribution-penalty/">Over-contribution penalty</a>
+          <a href="/mytfsa/tfsa-rules/">TFSA rules</a>
+          <a href="/mytfsa/fr/penalite-exces-celi/">En français</a>
+        </nav>
+        <p class="disclaimer">
+          MyTFSA is a tracking aid, not an official CRA statement. Always confirm your contribution
+          room in CRA My Account.
+        </p>
+        <p class="copyright">© 2026 MyTFSA · All rights reserved.</p>
+      </footer>
+    </div>
+    <script type="module" src="/src/pages/penalty.js"></script>
+  </body>
+</html>
